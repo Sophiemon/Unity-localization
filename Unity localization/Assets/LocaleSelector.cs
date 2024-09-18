@@ -22,8 +22,10 @@ public class LocaleSelector : MonoBehaviour
 
     IEnumerator SetLocale(int _localeID)
     {
+        active = true;
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localeID];
+        PlayerPrefs.SetInt("LocaleKey", _localeID);
         active = false;
     }
 }
